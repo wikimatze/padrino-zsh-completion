@@ -1,0 +1,82 @@
+#compdef padrino
+typeset -A opt_args
+
+_arguments -C \
+  '1:cmd:->cmds' \
+  '2:generators:->generator_lists' \
+  '*:: :->args' \
+&& ret=0
+
+case "$state" in
+  (cmds)
+     local commands; commands=(
+      'g:Padrinos generators'
+     )
+
+      _describe -t commands 'command' commands && ret=0
+  ;;
+  (generator_lists)
+    local generators; generators=(
+      'controller:creates a new controller'
+      'mailer:creates a new mailer'
+      'migration:creates a new migration'
+      'model:creates a new model'
+      'project:create a new Padrino app'
+      'plugin:add plugin to your app'
+    )
+    _describe -t generators 'generator' generators && ret=0
+  ;;
+  (args)
+    case $line[2] in
+      (controller)
+        _arguments \
+          '-d:remove all generated files' \
+          '-n:specify the application' \
+          '-r:specify the root'
+          ret=0
+      ;;
+      (mailer)
+        local mailers; mailers=(
+          '-a:creates a mailer for the specified subapp'
+          '-d:removes all generated files'
+          '-n:specify the application'
+          '-r:specify the root destination path'
+        )
+        _describe -t mailers 'mailer' mailers && ret=0
+      ;;
+      (migration)
+        local migrations; migrations=(
+          '-d:removes all generated files'
+          '-r:specify the root destination path'
+        )
+        _describe -t migrations 'migration' migrations && ret=0
+      ;;
+      (model)
+        local models; models=(
+          '-d:removes all generated files'
+          '-r:specify the root destination path'
+          '-s:skip migration generation'
+        )
+        _describe -t models 'model' models && ret=0
+      ;;
+      (project)
+        local projects; projects=(
+          "-a:specify db adapter (options: 'mysql', 'sqlite' , 'postgres')"
+          "-b:execute bundler dependencies installation"
+          "-c:define stylesheet (options: 'compass', 'less', 'sass', 'scss')"
+          "-d:define orm (options: 'mongoid', 'activerecord', 'datamapper', 'couchrest', 'mongomatic', 'ohm', 'ripple', 'sequel')"
+          "-i:generate tiny project skeleton without any components"
+          "-e:define renderer (options: 'erb', 'haml', 'slim', 'liquid')"
+          "-m:define mock (options: 'mocha', 'rr')"
+          "-n:specify app name different from the project name"
+          "-r:the root destination path for the project"
+          "-s:define script (options: 'prototype' 'rightjs' 'jquery' 'mootools' 'extcore' 'dojo')"
+          "-t:define test (options: 'bacon', 'shoulda', 'cucumber', 'testspec', 'riot', 'rspec', 'minitest')"
+        )
+        _describe -t projects 'project' projects && ret=0
+      ;;
+    esac
+  ;;
+esac
+
+return 1
