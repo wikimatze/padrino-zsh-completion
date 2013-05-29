@@ -1,6 +1,6 @@
 # Installation
 
-All you need is add the `_padrino` source to your `fpath` and call zsh commands for enabling autocompletion. If you
+All you need is add the `_padrino` source to your `fpath` and call zsh commands for enabling auto-completion. If you
 don't know what I mean please do the following:
 
 
@@ -17,7 +17,7 @@ $ vim ~/.zshrc
 
 
 Now reload your shell with `exec $SHELL`, install the [padrino gem](http://rubygems.org/gems/padrino) with
-`gem install padrino`, and finally start using `$ padrino g` and press tab for complete your command
+`gem install padrino`, and finally start using `$ padrino g` and press tab for auto-completion.
 
 
 # Support
@@ -35,7 +35,7 @@ project     -- create a new Padrino app
 ```
 
 
-Dep in which context you are, different options are available, for example:
+Depending in which context you are, different options are available, for example:
 
 
 ```bash
@@ -46,7 +46,7 @@ $padrino g model User -
 ```
 
 
-or
+or:
 
 
 ```bash
