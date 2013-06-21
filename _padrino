@@ -69,6 +69,7 @@ case "$state" in
           'sq\:migrate\:to[version]:Perform migration up/down to VERSION.'
           'sq\:migrate\:up:Perform migration up to latest migration available.'
           'sq\:migrate\:down:Perform migration down (erase all data).'
+          'mm\:translate:Generates .yml files for I18n translations.'
           'locale\:models:Generate a YAML file for localizing your models.'
           'routes:Retrieving a list of named routes.'
           'spec:Run all rspec tests.'
