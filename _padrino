@@ -54,7 +54,12 @@ case "$state" in
           'ar\:schema\:to_migration_with_reset:Creates a migration and resets the migrations log.'
           'ar\:setup:Creates the database, loads the schema, and seeds data.'
           'ar\:structure\:dump:Dumps the database structure to a SQL file.'
+          'ar\:translate:Translate your ActiveRecord models.'
           'ar\:version:Retrieves the current schema version number.'
+          'locale\:models:Generate a YAML file for localizing your models.'
+          'routes:Retrieving a list of named routes.'
+          'spec:Run all rspec tests.'
+          'test:Run all tests written in bacon, riot, and shoulda.'
         )
         _describe -t rakes 'rake' rakes && ret=0
       ;;
