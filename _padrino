@@ -11,15 +11,21 @@ _arguments -C \
 case "$state" in
   (cmds)
      local commands; commands=(
-      'g:Padrinos generators'
-      'rake:Run Padrinos rake tasks'
+      "console:Boots up the Padrino application irb console (alternatively use 'c')"
+      "generator:Executes the Padrino generator with given options (alternatively use 'gen' or 'g')"
+      "help:Describe available commands or one specific command (alternatively use 'h')"
+      "rake:Execute rake tasks"
+      "runner:Run a piece of code in the Padrino application environment (alternatively use 'run' or 'r')"
+      "start:Starts the Padrino application (alternatively use 's')"
+      "stop:Stops the Padrino application (alternatively use 'st')"
+      "version: Show current Padrino version."
      )
 
       _describe -t commands 'command' commands && ret=0
   ;;
   (generator_lists)
     case $line[1] in
-      (g)
+      (generator)
         local generators; generators=(
           'controller:creates a new controller'
           'mailer:creates a new mailer'
