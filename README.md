@@ -20,6 +20,9 @@ Now reload your shell with `exec $SHELL`, install the [padrino gem](http://rubyg
 `gem install padrino`, and finally start using `$ padrino g` and press tab for auto-completion.
 
 
+The details about the implementation can be found under my blog post ["Writing Zsh Completion for Padrino"](http://wikimatze.de/writing-zsh-completion-for-padrino/).
+
+
 # Support
 
 Currently all generator like the following are supported
