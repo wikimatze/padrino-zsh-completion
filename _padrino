@@ -27,12 +27,15 @@ case "$state" in
     case $line[1] in
       (generator)
         local generators; generators=(
-          'controller:creates a new controller'
-          'mailer:creates a new mailer'
-          'migration:creates a new migration'
-          'model:creates a new model'
-          'project:create a new Padrino app'
-          'plugin:add plugin to your app'
+          "app:generates a new Padrino application"
+          "controller:generates a new Padrino controller"
+          "component:add components into a Padrino project (you have to be inside an existing Padrino application)"
+          "mailer:generates a new Padrino mailer"
+          "migration:generates a new migration file"
+          "model:creates a new model"
+          "project:generates a new Padrino project"
+          "plugin:sets up a plugin within a Padrino application"
+          "task:generates a new task file"
         )
         _describe -t generators 'generator' generators && ret=0
       ;;
