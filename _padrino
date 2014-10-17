@@ -39,6 +39,12 @@ case "$state" in
         )
         _describe -t generators 'generator' generators && ret=0
       ;;
+      (start)
+        local start; starts=(
+         "-p:specify the port for the running Padrino instance"
+        )
+        _describe -t starts 'start' starts && ret=0
+      ;;
       (rake)
         local rake; rakes=(
           'ar\:abort_if_pending_migrations:Raises an error if there are pending migrations.'
@@ -101,9 +107,6 @@ case "$state" in
       (mailer)
         local mailers; mailers=(
           '-a:creates a mailer for the specified subapp'
-          '-d:removes all generated files'
-          '-n:specify the application'
-          '-r:specify the root destination path'
         )
         _describe -t mailers 'mailer' mailers && ret=0
       ;;
@@ -143,3 +146,4 @@ case "$state" in
 esac
 
 return 1
+
