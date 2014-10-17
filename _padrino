@@ -12,7 +12,7 @@ case "$state" in
   (cmds)
      local commands; commands=(
       "console:Boots up the Padrino application irb console (alternatively use 'c')"
-      "generator:Executes the Padrino generator with given options (alternatively use 'gen' or 'g')"
+      "generate:Executes the Padrino generator with given options (alternatively use 'gen' or 'g')"
       "help:Describe available commands or one specific command (alternatively use 'h')"
       "rake:Execute rake tasks"
       "runner:Run a piece of code in the Padrino application environment (alternatively use 'run' or 'r')"
@@ -25,7 +25,7 @@ case "$state" in
   ;;
   (generator_lists)
     case $line[1] in
-      (generator)
+      (generate)
         local generators; generators=(
           "app:generates a new Padrino application"
           "controller:generates a new Padrino controller"
@@ -127,17 +127,17 @@ case "$state" in
       ;;
       (project)
         local projects; projects=(
-          "-a:specify db adapter (options: 'mysql', 'sqlite' , 'postgres')"
+          "-a:specify db adapter (options: 'mysql', 'mysql2', 'mysql-gem', sqlite' , 'postgres')"
           "-b:execute bundler dependencies installation"
-          "-c:define stylesheet (options: 'compass', 'less', 'sass', 'scss')"
-          "-d:define orm (options: 'mongoid', 'activerecord', 'datamapper', 'couchrest', 'minirecord', 'mongomatic', 'ohm', 'ripple', 'sequel')"
+          "-c:define stylesheet (options: 'compass', 'less', 'sass', 'scss', 'none')"
+          "-d:define orm (options: 'activerecord', 'mongoid', 'couchrest', 'datamapper', 'minirecord', 'mongomatic', 'mongomapper', 'ohm', 'ripple', 'sequel', 'none')"
+          "-e:define renderer (options: 'erb', 'haml','liquid', 'slim', 'none')"
           "-i:generate tiny project skeleton without any components"
-          "-e:define renderer (options: 'erb', 'haml', 'slim', 'liquid')"
-          "-m:define mock (options: 'mocha', 'rr')"
+          "-m:define mock (options: 'mocha', 'rr', 'none')"
           "-n:specify app name different from the project name"
           "-r:the root destination path for the project"
-          "-s:define script (options: 'prototype' 'rightjs' 'jquery' 'mootools' 'extcore' 'dojo')"
-          "-t:define test (options: 'bacon', 'shoulda', 'cucumber', 'testspec', 'riot', 'rspec', 'minitest')"
+          "-s:define script (options: 'jquery', 'dojo', 'extcore', 'mootools', 'prototype', 'rightjs', 'none')"
+          "-t:define test (options: 'bacon', 'cucumber', 'shoulda', 'riot', 'rspec', 'steak', 'minitest', 'none')"
         )
         _describe -t projects 'project' projects && ret=0
       ;;
@@ -146,4 +146,3 @@ case "$state" in
 esac
 
 return 1
-
