@@ -127,7 +127,7 @@ case "$state" in
           "-a:specify db adapter (options: 'mysql', 'sqlite' , 'postgres')"
           "-b:execute bundler dependencies installation"
           "-c:define stylesheet (options: 'compass', 'less', 'sass', 'scss')"
-          "-d:define orm (options: 'mongoid', 'activerecord', 'datamapper', 'couchrest', 'mongomatic', 'ohm', 'ripple', 'sequel')"
+          "-d:define orm (options: 'mongoid', 'activerecord', 'datamapper', 'couchrest', 'minirecord', 'mongomatic', 'ohm', 'ripple', 'sequel')"
           "-i:generate tiny project skeleton without any components"
           "-e:define renderer (options: 'erb', 'haml', 'slim', 'liquid')"
           "-m:define mock (options: 'mocha', 'rr')"
