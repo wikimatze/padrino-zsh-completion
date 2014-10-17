@@ -98,11 +98,12 @@ case "$state" in
   (args)
     case $line[2] in
       (controller)
-        _arguments \
-          '-d:remove all generated files' \
-          '-n:specify the application' \
+        local controllers; controllers=(
+          '-d:remove all generated files'
+          '-n:specify the application'
           '-r:specify the root'
-          ret=0
+        )
+        _describe -t controllers 'controller' controllers && ret=0
       ;;
       (mailer)
         local mailers; mailers=(
