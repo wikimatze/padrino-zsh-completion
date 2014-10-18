@@ -26,7 +26,7 @@ case "$state" in
   (generator_lists)
     case $line[1] in
       (generate)
-        local generators; generators=(
+        local generate; generates=(
           "app:generates a new Padrino application"
           "controller:generates a new Padrino controller"
           "component:add components into a Padrino project (you have to be inside an existing Padrino application)"
@@ -37,7 +37,7 @@ case "$state" in
           "plugin:sets up a plugin within a Padrino application"
           "task:generates a new task file"
         )
-        _describe -t generators 'generator' generators && ret=0
+        _describe -t generates 'generate' generates && ret=0
       ;;
       (start)
         local start; starts=(
@@ -104,6 +104,29 @@ case "$state" in
           '-r:specify the root'
         )
         _describe -t controllers 'controller' controllers && ret=0
+      ;;
+      (component)
+        local components; components=(
+          '-n: The application name'
+          '--app==APP: The application name'
+          '-r: The root destination => Default: .'
+          '--root=ROOT: The root destination => Default: .'
+          '-a: SQL adapter for ORM (sqlite, mysql, mysql2, mysql-gem, postgres) => Default: sqlite'
+          '--adapter=ADAPTER: SQL adapter for ORM (sqlite, mysql, mysql2, mysql-gem, postgres) => Default: sqlite'
+          '-d: The database engine component (mongomatic, sequel, minirecord, dynamoid, activerecord, ohm, mongomapper, couchrest, ripple, mongoid, datamapper, none)'
+          '--orm=ORM: The database engine component (mongomatic, sequel, minirecord, dynamoid, activerecord, ohm, mongomapper, couchrest, ripple, mongoid, datamapper, none)'
+          '-t: The testing framework component (minitest, cucumber, shoulda, steak, riot, bacon, rspec, none)'
+          '--test=TEST: The testing framework component (minitest, cucumber, shoulda, steak, riot, bacon, rspec, none)'
+          '-m: The mocking library component (mocha, rr, none)'
+          '--mock=MOCK: The mocking library component (mocha, rr, none)'
+          '-s: The javascript library component (jquery, extcore, dojo, rightjs, mootools, prototype, none)'
+          '--script=SCRIPT: The javascript library component (jquery, extcore, dojo, rightjs, mootools, prototype, none)'
+          '-e: The template engine component (liquid, haml, slim, erb, none)'
+          '--renderer=RENDERER: The template engine component (liquid, haml, slim, erb, none)'
+          '-c: The stylesheet engine component (compass, less, scss, sass, none)'
+          '--stylesheet=STYLESHEET: The stylesheet engine component (compass, less, scss, sass, none)'
+        )
+        _describe -t components 'component' components && ret=0
       ;;
       (mailer)
         local mailers; mailers=(
