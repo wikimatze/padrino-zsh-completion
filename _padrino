@@ -101,8 +101,16 @@ case "$state" in
       (controller)
         local controllers; controllers=(
           '-d:remove all generated files'
-          '-n:specify the application'
-          '-r:specify the root'
+          '--destroy:remove all generated files'
+          '-n:The name space of your Padrino project'
+          '--namespace:The name space of your Padrino project'
+          '-l:The layout for the controller'
+          '--layout:The layout for the controller'
+          '-p:The parent of the controller'
+          '--parent:The parent of the controller'
+          '-r:The root destination'
+          '--root:The root destination'
+          '--no-helper:Not generate helper'
         )
         _describe -t controllers 'controller' controllers && ret=0
       ;;
