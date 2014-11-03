@@ -98,6 +98,13 @@ case "$state" in
   ;;
   (args)
     case $line[2] in
+      (app)
+        local apps; apps=(
+          '-f:Generate app files if app already exists'
+          '--force:Generate app files if app already exists'
+        )
+        _describe -t apps 'app' apps && ret=0
+      ;;
       (controller)
         local controllers; controllers=(
           '-d:remove all generated files'
@@ -155,6 +162,8 @@ case "$state" in
           '-d:removes all generated files'
           '-r:specify the root destination path'
           '-s:skip migration generation'
+          '-f:Generate app files if app already exists'
+          '--force:Generate app files if app already exists'
         )
         _describe -t models 'model' models && ret=0
       ;;
